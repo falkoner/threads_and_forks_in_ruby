@@ -1,17 +1,17 @@
 require "./lib/mailer"
 require "benchmark"
-require "celluloid"
+require "celluloid/current"
 
 class MailWorker
   include Celluloid
 
   def send_email(id)
-    Mailer.deliver do 
+    Mailer.deliver do
       from    "eki_#{id}@eqbalq.com"
       to      "jill_#{id}@example.com"
       subject "Threading and Forking (#{id})"
       body    "Some content"
-    end       
+    end
   end
 end
 
